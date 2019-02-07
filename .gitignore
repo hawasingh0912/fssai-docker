@@ -1,0 +1,4 @@
+# Ignoring Source Codes
+email_tester/docker-compose.yml
+*.code-workspace
+pwd_connect.sh
