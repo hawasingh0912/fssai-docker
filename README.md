@@ -1,10 +1,10 @@
 # Setup Docker in an air-gapped environment
-MeghRaj (NIC Cloud) is an air-gapped environment which is to say that production systems are not connected to the open Internet.
+An air-gapped environment which is to say that production systems are not connected to the open Internet.
+> This repository is for using Docker on [MeghRaj National Cloud by NIC](https://cloud.gov.in) with only access to official yum repositories.
 
+## FSSAI Images
 
-## Images
-
-| Image | Version |
+| Images | Version |
 |-------|--------:|
 |[![CentOS](https://img.shields.io/docker/pulls/fssai/centos.svg?link=https://hub.docker.com/r/fssai/centos&colorB=green&label=CentOS&logoColor=brightgreen&style=popout-square&logo=linux)](https://hub.docker.com/r/fssai/centos) | 7.6.1810 |
 |[![Nginx](https://img.shields.io/docker/pulls/fssai/nginx.svg?colorB=green&label=Nginx&logoColor=brightgreen&style=popout-square&logo=nginx)](https://hub.docker.com/r/fssai/nginx) | 1.14.2 |
@@ -13,8 +13,8 @@ MeghRaj (NIC Cloud) is an air-gapped environment which is to say that production
 |[![PostgreSQL](https://img.shields.io/docker/pulls/fssai/postgres.svg?colorB=green&label=PostgreSQL&logoColor=brightgreen&style=popout-square&logo=postgresql)](https://hub.docker.com/r/fssai/postgres) |To build|
 
 ----------------
-## TO DO
-- [ ] Install Docker Offline
+## TO DO LIST
+- [x] Install Docker Offline
 - [ ] Build Base Images
   - FROM scratch
     - [x] CentOS
