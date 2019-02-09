@@ -4,13 +4,13 @@ services:
 
   centos:
     image: fssai/centos:${CENTOS_VER}
-    build: 
+    build:
       context: ./centos
       dockerfile: ${TYPE}.Dockerfile
       args: 
         - CENTOS_VER=${CENTOS_VER}
-
-  nginx:
+    
+    nginx:
     image: fssai/nginx:${NGINX_VER}
     build: 
       context: ./nginx
@@ -30,4 +30,16 @@ services:
         - CENTOS_VER=${CENTOS_VER} 
         - NODE_VER=${NODE_VER}
     depends_on: 
+      - centos
+
+  java:
+    image: fssai/java:${JAVA_VER}
+    build:
+      context: ./java
+      dockerfile: ${TYPE}.Dockerfile
+      args:
+        - CENTOS_VER=${CENTOS_VER}
+        - JAVA_VER=${JAVA_VER}
+        - JAVA_URL=${JAVA_URL}
+    depends_on:
       - centos

@@ -1,5 +1,7 @@
 # Ignoring Source Codes
 email_tester/docker-compose.yml
 *.code-workspace
+*.tar
 *.tar.xz
+*.tar.gz
 *.rpm
