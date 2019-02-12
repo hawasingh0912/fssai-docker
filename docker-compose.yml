@@ -1,5 +1,4 @@
 version: '3'
-
 services:
 
   centos:
@@ -10,7 +9,7 @@ services:
       args: 
         - CENTOS_VER=${CENTOS_VER}
     
-    nginx:
+  nginx:
     image: fssai/nginx:${NGINX_VER}
     build: 
       context: ./nginx
