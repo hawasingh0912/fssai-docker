@@ -5,3 +5,6 @@ email_tester/docker-compose.yml
 *.tar.xz
 *.tar.gz
 *.rpm
+
+# Passwords
+app/.env
