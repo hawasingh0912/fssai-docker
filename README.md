@@ -1,6 +1,5 @@
 # Setup Docker in an air-gapped environment
-An air-gapped environment which is to say that production systems are not connected to the open Internet.
-> This repository is for using Docker on [MeghRaj National Cloud by NIC](https://cloud.gov.in) with only access to official yum repositories.
+> This repository is for using Docker in an air-gapped environment like [MeghRaj National Cloud by NIC](https://cloud.gov.in) where production systems are not connected to the open Internet.
 
 ## FSSAI Images
 
@@ -14,13 +13,17 @@ An air-gapped environment which is to say that production systems are not connec
 
 ----------------
 ## TO DO LIST
-- [ ] Install Docker Offline
+- [x] Install Docker Offline
 - [ ] Build Base Images
   - FROM scratch
-    - [x] CentOS
-  - FROM CENTOS
-    - [x] NGINX
-    - [x] nodeJS + YARN
-    - [ ] JAVA + Tomcat
-    - [ ] PostgreSQL
+    - [x] [CentOS](https://hub.docker.com/r/fssai/centos)
+    - FROM [CENTOS]
+      - [x] [nodeJS + YARN](https://hub.docker.com/r/fssai/node)
+      - [x] [NGINX](https://hub.docker.com/r/fssai/nginx)
+      - [x] [JAVA](https://hub.docker.com/r/fssai/java)
+      - [ ] PostgreSQL
+- [ ] Create `Dockerfile` and `docker-compose.yml` for all services
+  - [x] [Web - Dockerfile Build in nodeJS and deploy in Nginx](./apps/web)
+  - [ ] Spring Cloud Services
+  - [ ] PostgreSQL DB Cluster  
 - [ ] Create Private Docker Registry

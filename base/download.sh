@@ -1,27 +1,29 @@
 #!/bin/bash
-image=centos ; ver=7.5.1804                                         # Host CentOS Version
+image=centos ; ver=7.5.1804                               # Host CentOS Version
 dir="$(dirname $(readlink -f $0))"
 case "$1" in
 
   centos) # Official CentOS Docker Image -------------------------------------#
     docker image pull $image:$ver
     docker image tag $image:$ver fssai/$image:$ver
-    docker save fssai/$image:$ver | pxz > $dir/rpm/$image-$ver.tar.xz
+    docker save fssai/$image:$ver | pxz > $dir/packages/$image-$ver.tar.xz
     pxz -cd $image-$ver.tar.xz | docker load
     ;;
   
-  java) # Oracle Java
-    JAVA_VER=8u201
-    JAVA_URL=https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.rpm
+  java8) # Oracle Java -------------------------------------------------------#
+    java8page="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
+    java8URL=$(curl -s $java8page | awk "
+      /downloads\['/ && ! /demos/ && /\['files'\]/ && /linux-x64/ && /.rpm/
+      " | grep -o 'http.*\.rpm' | head -1)
     curl -L -C - -b "oraclelicense=accept-securebackup-cookie" ${JAVA_URL} \
-      -o $dir/rpm/jdk-${JAVA_VER}-linux-x64.rpm
-    ;; 
+      -o $dir/packages/${java8URL##*/}
+    ;;
 
-  docker|nginx|node) # Docker RPMs for offline installation -----------------------------#
+  docker|nginx|node) # Docker RPMs for offline installation ------------------#
     centos_image="$image:$ver"
     docker run --rm \
-      -v $dir/rpm:/rpm \
-      $centos_image sh /rpm/get_rpm.sh $1
+      -v $dir/packages:/packages \
+      $centos_image sh /packages/get_rpm.sh $1
     ;;
   
   *)

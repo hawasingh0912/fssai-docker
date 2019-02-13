@@ -1,6 +1,6 @@
 ## Install Docker
 ```bash
-sudo yum remove docker \
+yum remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -9,9 +9,15 @@ sudo yum remove docker \
                   docker-logrotate \
                   docker-engine
 
-sudo yum install -y yum-utils \
+yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
+
+curl https://download.docker.com/linux/centos/docker-ce.repo \
+  -o /etc/yum.repos.d/docker-ce.repo
+
+yum install -y docker-ce --downloadonly
+tar /var/cache/yum/x86_64/7
 ```
 
 
