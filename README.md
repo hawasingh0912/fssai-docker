@@ -17,7 +17,7 @@
 - [ ] Build Base Images
   - FROM scratch
     - [x] [CentOS](https://hub.docker.com/r/fssai/centos)
-    - FROM [CENTOS]
+    - FROM [CentOS]
       - [x] [nodeJS + YARN](https://hub.docker.com/r/fssai/node)
       - [x] [NGINX](https://hub.docker.com/r/fssai/nginx)
       - [x] [JAVA](https://hub.docker.com/r/fssai/java)
